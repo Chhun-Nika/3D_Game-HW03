@@ -1,15 +1,15 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FerrisWheelRotation : MonoBehaviour
-{
-    [SerializeField] float rotationSpeed = 10f;
 
-    void Update()
+public class FerrisWheelRotate : MonoBehaviour
+{
+    public float rotationSpeed = 10f;
+
+    void FixedUpdate()  // ← physics-safe
     {
-        // Rotate around Z axis continuously
-        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, rotationSpeed * Time.fixedDeltaTime, Space.Self);
     }
 }
 
